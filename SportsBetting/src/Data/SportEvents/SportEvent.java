@@ -1,6 +1,8 @@
-package Events;
+package Data.SportEvents;
 
 import Data.Bet;
+import Data.Bet;
+import Data.Result;
 import Data.Result;
 import java.time.LocalDateTime;
 

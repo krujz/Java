@@ -1,7 +1,7 @@
 package Data;
 
+import Data.SportEvents.SportEvent;
 import Enums.BetTypes;
-import Events.SportEvent;
 import java.util.List;
 
 public class Bet {
