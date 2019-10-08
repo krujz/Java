@@ -4,6 +4,7 @@ import Exceptions.OutcomeOddTimeOverlapException;
 import java.util.List;
 
 public class Outcome {
+    
     String description;
     Bet bet;
     List<OutcomeOdd> outcomeodds;
@@ -37,5 +38,22 @@ public class Outcome {
             index++;
         }
         return false;
+    }
+    
+    private String AppendOutcomeOdds()
+    {
+        String AppendableOutcomeOdds = "";
+        
+        for(OutcomeOdd outcomeodd : outcomeodds)
+        {
+            AppendableOutcomeOdds += outcomeodd + "\n";
+        }
+        return AppendableOutcomeOdds;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Description: " + this.description + "\tBet: " + this.bet.getDescription() + "\tOutcome odds: " + this.AppendOutcomeOdds();
     }
 }

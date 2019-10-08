@@ -5,26 +5,32 @@ import Data.Bet;
 import Data.Result;
 import Data.Result;
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class SportEvent {
+public abstract class SportEvent {
     String title;
     LocalDateTime start_date;
     LocalDateTime end_date;
-    Bet bets;
-    Result result;
+    List<Bet> bets;
+    Result results;
     
-    public SportEvent(String title, LocalDateTime start_date, LocalDateTime end_date, Bet bets, Result results)
+    public SportEvent(String title, LocalDateTime start_date, LocalDateTime end_date, List<Bet> bets, Result results)
     {
         this.title = title;
         this.start_date = start_date;
         this.end_date = end_date;
         this.bets = bets;
-        this.result = results;
+        this.results = results;
     }
     
-    public void SetResult(Result result)
-    {
-        this.result = result;
-    }
-    
+     public String BetsToString()
+     {
+         String AppendBets = "";
+        
+        for(Bet bet : this.bets)
+        {
+            AppendBets += "\n" + bet.toString();
+        }
+        return AppendBets;
+     }
 }
