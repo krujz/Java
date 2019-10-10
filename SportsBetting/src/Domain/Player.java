@@ -60,4 +60,10 @@ public class Player {
     public LocalDateTime getDateofbirth() {
         return dateofbirth;
     }
+    
+    @Override
+    public String toString()
+    {
+        return "Név: " + this.name + "\taccountnumber: " + this.account_number + "\tBalance: " + this.balance + "\tCurrency: " + this.currency + "\tDate of birth: " + dateofbirth;
+    }
 }

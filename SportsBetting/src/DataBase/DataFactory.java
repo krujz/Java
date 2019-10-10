@@ -7,6 +7,7 @@ import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.Result;
 import Domain.SportEvents.FootballSportEvent;
+import Domain.Wager;
 import Enums.BetTypes;
 import Enums.Currency;
 import Exceptions.OutcomeOddTimeOverlapException;
@@ -24,23 +25,28 @@ public class DataFactory
     ArrayList<OutcomeOdd> outcomeodds;
     ArrayList<Player> players;
     FootballSportEvent footballsportevent;
+    ArrayList<Wager> wagers;
+
+    
+    long account_number;
     
     
     public DataFactory() throws OutcomeOddTimeOverlapException
     {
         this.datamanufacturerlogic = new DataManufacturerLogic();
-        this.results = new ArrayList<String>();
         this.bets = new ArrayList<Bet>();
         this.outcomes = new ArrayList<Outcome>();
         this.outcomeodds = new ArrayList<OutcomeOdd>();
         this.players = new ArrayList<Player>();
+        this.wagers = new ArrayList<Wager>();
+        
+        this.account_number  = 0;
         
         this.SetUpTheDataBase();
     }
     
     private void SetUpTheDataBase() throws OutcomeOddTimeOverlapException
     {
-        this.SetPlayer();
         this.footballsportevent = this.SetFootballSportEvent();
         this.SetBets();
         this.SetOutcomes();
@@ -57,17 +63,25 @@ public class DataFactory
         
         
     }
-    private void SetPlayer()
+    
+    public void AddResult(Result result)
     {
-        long account_number = 0;
-        this.players.add(this.datamanufacturerlogic.CreatePlayer("Vicc Elek", BigDecimal.ONE, BigDecimal.valueOf(account_number++), Currency.EUR, LocalDateTime.of(1997, Month.MARCH, 10, 10, 10)));
+        this.footballsportevent.setResults(result);
+    }
+    
+    public void AddWager(Wager wager)
+    {
+        this.wagers.add(wager);
+    }
+    
+    public void SetPlayer(Player player)
+    {
+        this.players.add(player);
     }
     
     private FootballSportEvent SetFootballSportEvent()
     {
-        this.results.add("A győztes csapat az ARSENAL");
-        this.results.add("A gólok száma 2");
-        return this.datamanufacturerlogic.CreateFootBallSportEvent("Arsenal vs Tottenham",LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10),new ArrayList<Bet>(),new Result(results));
+        return this.datamanufacturerlogic.CreateFootBallSportEvent("Arsenal vs Tottenham",LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10),new ArrayList<Bet>(),new Result(new ArrayList<String>()));
     }
     
     private void SetBets()
@@ -113,6 +127,10 @@ public class DataFactory
 
     public FootballSportEvent getFootballsportevent() {
         return footballsportevent;
+    }
+    
+    public ArrayList<Wager> getWagers() {
+        return wagers;
     }
     
     

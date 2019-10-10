@@ -23,9 +23,9 @@ public interface IView {
     
     void printBalance(Player player);
     
-    void printOutcomeOdds(ArrayList<SportEvent> sportevent);
+    void printOutcomeOdds(ArrayList<SportEvent> sportevents);
     
-    OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevent);
+    OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevents);
     
     BigDecimal readWAgerAmount();
     

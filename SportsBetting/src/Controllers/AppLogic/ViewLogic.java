@@ -1,6 +1,6 @@
 package Controllers.AppLogic;
 
-public class AppLogic 
+public class ViewLogic 
 {
     
 }
