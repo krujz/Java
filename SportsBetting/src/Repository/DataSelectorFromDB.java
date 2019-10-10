@@ -1,18 +1,27 @@
-package Controllers.SendDataToUI;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Repository;
 
+import DataBase.DataFactory;
 import Domain.Bet;
 import Domain.Outcome;
 import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.FootballSportEvent;
 import Exceptions.OutcomeOddTimeOverlapException;
-import Repository.DataFactory;
 import java.util.ArrayList;
 
-public class DataToUILogic 
-{
+/**
+ *
+ * @author komol
+ */
+public class DataSelectorFromDB {
+    
     DataFactory datafactory;
-    public DataToUILogic() throws OutcomeOddTimeOverlapException
+    public DataSelectorFromDB() throws OutcomeOddTimeOverlapException
     {
         datafactory = new DataFactory();
     }
