@@ -43,7 +43,17 @@ public class DataFactory
         this.outcomes = new ArrayList<Outcome>();
         this.outcomeodds = new ArrayList<OutcomeOdd>();
         this.players = new ArrayList<Player>();
+        
+        this.SetUpTheDataBase();
+    }
+    
+    private void SetUpTheDataBase() throws OutcomeOddTimeOverlapException
+    {
+        this.SetPlayer();
         this.footballsportevent = this.SetFootballSportEvent();
+        this.SetBets();
+        this.SetOutcomes();
+        this.SetOutcomeOdds();
         
         this.outcomes.get(0).AddOutcomeOdds(outcomeodds.get(0));
         this.outcomes.get(1).AddOutcomeOdds(outcomeodds.get(1));
@@ -54,34 +64,35 @@ public class DataFactory
         this.bets.get(1).AddOutcome(this.outcomes.get(1));
         this.bets.get(1).AddOutcome(this.outcomes.get(2));
         
+        
     }
-    public void SetPlayer()
+    private void SetPlayer()
     {
         long account_number = 0;
         this.players.add(this.datamanufacturerlogic.CreatePlayer("Vicc Elek", BigDecimal.ONE, BigDecimal.valueOf(account_number++), Currency.EUR, LocalDateTime.of(1997, Month.MARCH, 10, 10, 10)));
     }
     
-    public FootballSportEvent SetFootballSportEvent()
+    private FootballSportEvent SetFootballSportEvent()
     {
         this.results.add("A győztes csapat az ARSENAL");
         this.results.add("A gólok száma 2");
         return this.datamanufacturerlogic.CreateFootBallSportEvent("Arsenal vs Tottenham",LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10),new ArrayList<Bet>(),new Result(results));
     }
     
-    public void SetBets(FootballSportEvent footballsportevent)
+    private void SetBets()
     {
-        this.bets.add(new Bet("Nyerő csapar",footballsportevent,BetTypes.WINNER,new ArrayList<Outcome>()));
-        this.bets.add(new Bet("Gólok száma",footballsportevent,BetTypes.GOALS,new ArrayList<Outcome>()));
+        this.bets.add(new Bet("Nyerő csapar",this.footballsportevent,BetTypes.WINNER,new ArrayList<Outcome>()));
+        this.bets.add(new Bet("Gólok száma",this.footballsportevent,BetTypes.GOALS,new ArrayList<Outcome>()));
     }
     
-    public void SetOutcomes(ArrayList<Bet> bets)
+    private void SetOutcomes()
     {
-        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("több mint 1", bets.get(0), new ArrayList<OutcomeOdd>()));
-        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("Arsenal", bets.get(0), new ArrayList<OutcomeOdd>()));
-        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("Tottenham", bets.get(1), new ArrayList<OutcomeOdd>()));
+        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("több mint 1", this.bets.get(0), new ArrayList<OutcomeOdd>()));
+        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("Arsenal", this.bets.get(0), new ArrayList<OutcomeOdd>()));
+        this.outcomes.add(this.datamanufacturerlogic.CreateOutcome("Tottenham",this.bets.get(1), new ArrayList<OutcomeOdd>()));
     }
     
-    public void SetOutcomeOdds()
+    private void SetOutcomeOdds()
     {
         this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("12"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
         this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("2"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
