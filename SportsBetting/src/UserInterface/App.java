@@ -1,12 +1,27 @@
 package UserInterface;
 
+import Controllers.SendDataToUI.DataToUILogic;
+import Exceptions.OutcomeOddTimeOverlapException;
 import Repository.Interfaces.ISportsBettingService;
 import Repository.Interfaces.IView;
 
 public class App {
 
-    public App(ISportsBettingService isportbettingservice,IView iview) {
+    DataToUILogic receiverlogic;
+    
+    public App(ISportsBettingService sportbettingservice,IView view) 
+    {
+        try
+        {
+           this.receiverlogic = new DataToUILogic();
         }
+        catch(OutcomeOddTimeOverlapException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }
     
     public void play()
     {
