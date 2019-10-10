@@ -56,7 +56,7 @@ public class OutcomeOdd {
     
     private String CurrencyToString()
     {
-        this.outcomeoddlogic.CurrencyToString(this.currency);
+        return this.outcomeoddlogic.CurrencyToString(this.currency);
     }
     
     @Override

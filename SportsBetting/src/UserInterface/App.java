@@ -7,18 +7,11 @@ import Repository.Interfaces.IView;
 
 public class App {
 
-    DataMoverLogic receiverlogic;
+   
     
     public App(ISportsBettingService sportbettingservice,IView view) 
     {
-        try
-        {
-           this.receiverlogic = new DataMoverLogic();
-        }
-        catch(OutcomeOddTimeOverlapException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        
         
         
     }
@@ -50,12 +43,13 @@ public class App {
     
     public static void main(String[] args) {
        
-        
-//        try{
-//            
-//        }
-//        catch(OutcomeOddTimeOverlapException e){
-//            System.out.println(e.getMessage());
-//        }
+        try
+        {
+           DataMoverLogic receiverlogic = new DataMoverLogic();
+        }
+        catch(OutcomeOddTimeOverlapException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }

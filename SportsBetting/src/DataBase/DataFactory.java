@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DataBase;
 
-import Controllers.App.Logic.DataManufacturerLogic;
+import Controllers.DataMakerLogic.DataManufacturerLogic;
 import Domain.Bet;
 import Domain.Outcome;
 import Domain.OutcomeOdd;
@@ -20,10 +15,6 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 
-/**
- *
- * @author komol
- */
 public class DataFactory 
 {    
     DataManufacturerLogic datamanufacturerlogic;
@@ -76,7 +67,7 @@ public class DataFactory
     {
         this.results.add("A győztes csapat az ARSENAL");
         this.results.add("A gólok száma 2");
-        return this.datamanufacturerlogic.CreateFootBallSportEvent("Arsenal vs Tottenham",LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10),new ArrayList<Bet>(),new Result(results));
+        return this.datamanufacturerlogic.CreateFootBallSportEvent("Arsenal vs Tottenham",LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10),new ArrayList<Bet>(),new Result(results));
     }
     
     private void SetBets()
@@ -94,10 +85,10 @@ public class DataFactory
     
     private void SetOutcomeOdds()
     {
-        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("12"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
-        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("2"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
-        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("30"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
-        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("10"), LocalDateTime.now(),LocalDateTime.of(2020, Month.MARCH, 10, 10, 10), Currency.EUR));
+        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("12"), LocalDateTime.of(2020, Month.MARCH, 1, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
+        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("2"), LocalDateTime.of(2020, Month.MARCH, 2, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
+        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("30"), LocalDateTime.of(2020, Month.MARCH, 3, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
+        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("10"), LocalDateTime.of(2020, Month.MARCH, 4, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
     }
 
     public ArrayList<String> getResults() {

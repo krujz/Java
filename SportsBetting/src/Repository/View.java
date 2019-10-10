@@ -1,4 +1,4 @@
-package UserInterface;
+package Repository;
 
 import Domain.OutcomeOdd;
 import Domain.Player;

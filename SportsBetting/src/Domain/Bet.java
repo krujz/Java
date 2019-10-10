@@ -16,17 +16,14 @@ public class Bet {
     
     public Bet(String descritpion,SportEvent event, BetTypes bettypes, ArrayList<Outcome> outcome)
     {
-        this.description = description;
+        this.description = descritpion;
         this.event = event;
         this.bettypes = bettypes;
-        this.outcomes = outcomes;
+        this.outcomes = outcome;
         this.betlogic = new BetLogic();
     }
     
-    public String OutcomeDescription()
-    {
-        return this.betlogic.OutcomeDescription(this.outcomes);
-    }
+    
 
     public void setDescription(String description) {
         this.description = description;
@@ -60,6 +57,10 @@ public class Bet {
         return outcomes;
     }
     
+    public String OutcomeDescription()
+    {
+        return this.betlogic.OutcomeDescription(this.outcomes);
+    }
     
     public String BettypeTostring()
     {
