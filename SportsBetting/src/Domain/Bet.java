@@ -1,29 +1,31 @@
-package Data;
+package Domain;
 
-import Data.SportEvents.SportEvent;
+import Domain.SportEvents.SportEvent;
 import Enums.BetTypes;
-import java.util.List;
+import java.util.ArrayList;
+import Controllers.Domain.Logic.BetLogic;
 
 public class Bet {
     
     String description;
     SportEvent event;
     BetTypes bettypes;
-    List<Outcome> outcomes;
+    ArrayList<Outcome> outcomes;
+    BetLogic betlogic;
     
-    public void AddOutcome(Outcome new_outcome)
+    
+    public Bet(String descritpion,SportEvent event, BetTypes bettypes, ArrayList<Outcome> outcome)
     {
-        outcomes.add(new_outcome);
+        this.description = description;
+        this.event = event;
+        this.bettypes = bettypes;
+        this.outcomes = outcomes;
+        this.betlogic = new BetLogic();
     }
     
-    private String OutcomeDescription()
+    public String OutcomeDescription()
     {
-        String AppendedOutcomeDescription = "";
-        for(Outcome outcome : this.outcomes)
-        {
-            AppendedOutcomeDescription+= "\t" + outcome.description;
-        }
-        return AppendedOutcomeDescription;
+        return this.betlogic.OutcomeDescription(this.outcomes);
     }
 
     public void setDescription(String description) {
@@ -38,7 +40,7 @@ public class Bet {
         this.bettypes = bettypes;
     }
 
-    public void setOutcomes(List<Outcome> outcomes) {
+    public void setOutcomes(ArrayList<Outcome> outcomes) {
         this.outcomes = outcomes;
     }
 
@@ -54,28 +56,19 @@ public class Bet {
         return bettypes;
     }
 
-    public List<Outcome> getOutcomes() {
+    public ArrayList<Outcome> getOutcomes() {
         return outcomes;
     }
     
     
     public String BettypeTostring()
     {
-        if (this.bettypes == BetTypes.GOALS) {
-            return "Goals";
-        }
-        else if (this.bettypes == BetTypes.NUMBER_OF_SETS) {
-            return "Number of sets";
-        }
-        else if (this.bettypes == BetTypes.PLAYERS_SCORE) {
-            return "Player score";
-        }
-        else
-        {
-            return "Winner";
-        }
-        
-       
+        return betlogic.BettypeTostring(this.bettypes);
+    }
+    
+    public void AddOutcome(Outcome new_outcome)
+    {
+        outcomes.add(new_outcome);
     }
     
     @Override

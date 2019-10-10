@@ -1,5 +1,6 @@
-package Data;
+package Domain;
 
+import Controllers.Domain.Logic.OutcomeOddLogic;
 import Enums.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,7 +11,16 @@ public class OutcomeOdd {
     LocalDateTime validFrom;
     LocalDateTime validUntil;
     Currency currency;
+    OutcomeOddLogic outcomeoddlogic;
     
+     public OutcomeOdd(BigDecimal value,LocalDateTime validFrom,LocalDateTime validUntil,Currency currency)
+    {
+        this.value = value;
+        this.validFrom = validFrom;
+        this.validUntil = validUntil;
+        this.currency = currency;
+        this.outcomeoddlogic = new OutcomeOddLogic();
+    }
     
     public BigDecimal getValue() {
         return value;
@@ -44,26 +54,9 @@ public class OutcomeOdd {
         this.currency = currency;
     }
     
-    public OutcomeOdd(BigDecimal value,LocalDateTime validFrom,LocalDateTime validUntil,Currency currency)
-    {
-        this.value = value;
-        this.validFrom = validFrom;
-        this.validUntil = validUntil;
-        this.currency = currency;
-    }
-    
     private String CurrencyToString()
     {
-        if (this.currency == Currency.EUR) {
-            return "EUR";
-        }
-        else if (this.currency == Currency.HUF) {
-            return "HUF";
-        }
-        else
-        {
-            return "USD";
-        }
+        this.outcomeoddlogic.CurrencyToString(this.currency);
     }
     
     @Override
