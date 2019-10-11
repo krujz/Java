@@ -1,6 +1,8 @@
 package Repository;
 
 import DataBase.DataFactory;
+import Domain.Bet;
+import Domain.Outcome;
 import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.SportEvent;
@@ -31,7 +33,7 @@ public class View implements IView{
     @Override
     public void printBalance(Player player) {
         int playerindex = this.datafactory.getPlayers().indexOf(player);
-        System.out.println(this.datafactory.getPlayers().get(playerindex).getBalance()+ " "+ this.datafactory.getPlayers().get(playerindex).getCurrency().toString() );
+        System.out.println(this.datafactory.getPlayers().get(playerindex).getBalance()+ " "+ this.datafactory.getPlayers().get(playerindex).getCurrency().toString());
     }
 
     @Override
@@ -43,29 +45,47 @@ public class View implements IView{
         }
     }
 
-    @Override
+    @Override // Not going to do anything with the param because of the too many cycle-s
     public OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevents) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        OutcomeOdd minoutcomeodd = null;
+        BigDecimal minvalue = new BigDecimal("10000000");
+        for(OutcomeOdd outcomeodd : this.datafactory.getOutcomeodds())
+        {
+            if ((outcomeodd.getValue().compareTo(minvalue)) == -1) 
+            {
+                minvalue = outcomeodd.getValue();
+                minoutcomeodd = outcomeodd;
+            }
+        }
+        return minoutcomeodd;
     }
 
-    @Override
+    @Override // Which one???
     public BigDecimal readWAgerAmount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.datafactory.getWagers().get(0).getAmount() ;
     }
 
     @Override
-    public void printWagerSaved(Wager wager) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void printWagerSaved(Wager wager) 
+    {
+        this.datafactory.AddWager(wager);
+        System.out.println("Wager saved ! ");
     }
 
-    @Override
+    @Override // no param for the amount money he/she wanted to play with , default amount is 100
     public void printNotEnoughBalance(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        BigDecimal defaultamount = new BigDecimal("100");
+        if (defaultamount.compareTo(player.getBalance()) == 1 ) 
+        {
+            System.out.println("Not Enough balance ! ");
+        }
     }
 
-    @Override
-    public void printResults(Player player, ArrayList<Wager> wagers) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override // Didn t have to set the connections between the sportevent class
+    public void printResults(Player player, ArrayList<Wager> wagers) 
+    {
+        this.datafactory.getFootballsportevent().getResults();
     }
     
 }
