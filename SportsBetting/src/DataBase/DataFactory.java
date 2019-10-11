@@ -86,8 +86,9 @@ public class DataFactory
     
     private void SetBets()
     {
-        this.bets.add(new Bet("Nyerő csapar",this.footballsportevent,BetTypes.WINNER,new ArrayList<Outcome>()));
+        this.bets.add(new Bet("Nyerő csapat",this.footballsportevent,BetTypes.WINNER,new ArrayList<Outcome>()));
         this.bets.add(new Bet("Gólok száma",this.footballsportevent,BetTypes.GOALS,new ArrayList<Outcome>()));
+        this.footballsportevent.setBets(bets);
     }
     
     private void SetOutcomes()

@@ -1,5 +1,6 @@
 package Controllers.Domain.Logic;
 
+import Domain.Bet;
 import Domain.Result;
 import java.util.ArrayList;
 
@@ -9,4 +10,15 @@ public class ResultLogic {
         results.add(result);
         return results;
     }
+    
+    public String ResultsToString(ArrayList<String> results)
+     {
+         String AppendResults = "";
+        
+        for(String result : results)
+        {
+            AppendResults += "\n" + result;
+        }
+        return AppendResults;
+     }
 }

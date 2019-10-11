@@ -25,6 +25,10 @@ public class Result {
         this.results = results;
     }
     
+    public String ResultToString()
+    {
+        return this.resultlogic.ResultsToString(this.results);
+    }
  
  
 }

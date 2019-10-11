@@ -16,7 +16,7 @@ public class FootballSportEvent extends SportEvent {
     @Override
     public String toString()
     {
-        return "Football : \nTitle: " + title + "\nStarts: " + start_date.toString() + "\nEnds: " + end_date.toString() + "\nBets:" + BetsToString() + "\nResult: " + results.getResults().toString();
+        return "Title: " + title + " Starts: " + start_date + " Ends: " + end_date;
     }
     
 }

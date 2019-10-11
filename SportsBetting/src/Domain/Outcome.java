@@ -36,14 +36,8 @@ public class Outcome {
         outcomelogic.AddOutcomeOdds(newOutcomeOdd, this.outcomeodds);
     }
         
-    private String AppendOutcomeOdds()
+    public String AppendOutcomeOdds()
     {
         return outcomelogic.AppendOutcomeOdds(outcomeodds);
-    }
-    
-    @Override
-    public String toString()
-    {
-        return "Description: " + this.description + "\tBet: " + this.bet.getDescription() + "\tOutcome odds: " + this.AppendOutcomeOdds();
     }
 }

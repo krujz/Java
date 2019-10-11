@@ -7,6 +7,7 @@ import Domain.Result;
 import Domain.Result;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javafx.concurrent.Task;
 
 public abstract class SportEvent {
     String title;
@@ -76,6 +77,11 @@ public abstract class SportEvent {
         this.sporteventlogic = sporteventlogic;
     }
     
+    @Override
+    public String toString()
+    {
+        return "SportEvent : \nTitle: " + title + "\nStarts: " + start_date + "\nEnds: " + end_date ;
+    }
     
     
     public String BetsToString()

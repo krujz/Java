@@ -62,7 +62,7 @@ public class OutcomeOdd {
     @Override
     public String toString()
     {
-        return "Value: " + this.value + "\tValid from: " + this.validFrom + "\tValid until: " + this.validUntil + "\tCurrency: " + CurrencyToString();
+        return "Outcomeodd: Value: " + this.value + " Valid from: " + this.validFrom + " Valid until: " + this.validUntil + " Currency: " + CurrencyToString();
     }
     
     

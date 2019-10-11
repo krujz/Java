@@ -27,7 +27,9 @@ public class View implements IView{
 
     @Override
     public void printWelcomeMessage(Player player) {
-        System.out.println("What is your name?");
+        System.out.println("Welcome "+ player.getName());
+        System.out.println("Your balance is "+player.getBalance() +" "+ player.getCurrency());
+        System.out.println("What are you want to bet on? (choose a number or press q for quit)");
     }
 
     @Override
@@ -38,14 +40,17 @@ public class View implements IView{
 
     @Override
     public void printOutcomeOdds(ArrayList<SportEvent> sportevents) {
+        int i = 0;
         for(SportEvent sportevent : sportevents)
         {
+            ArrayList<Bet> bets = sportevent.getBets();
+            System.out.println(i);
             System.out.println(sportevent.getBets().toString());
-            sportevent.getBets().forEach(x ->System.out.println(x.getOutcomes().toString()));
+            sportevent.getBets().forEach(x->x.getOutcomes().forEach(y-> System.out.println(y.AppendOutcomeOdds())));
         }
     }
 
-    @Override // Not going to do anything with the param because of the too many cycle-s
+    @Override
     public OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevents) {
         OutcomeOdd minoutcomeodd = null;
         BigDecimal minvalue = new BigDecimal("10000000");

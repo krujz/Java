@@ -75,7 +75,7 @@ public class Bet {
     @Override
     public String toString()
     {
-        return "Description: " + this.description + "\nEvent: " + this.event.toString() + "\nBet type: " + BettypeTostring() + "\nOutcomes: " +OutcomeDescription(); 
+        return "Bet : \nDescription: " + this.description + " \nEvent: " + this.event.toString() + " \nBet type: " + BettypeTostring() + " \nOutcomes:\n " +OutcomeDescription(); 
     }
     
     

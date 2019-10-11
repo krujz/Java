@@ -8,10 +8,11 @@ public class BetLogic {
     
     public String OutcomeDescription(ArrayList<Outcome> outcomes)
     {
+        int i = 0;
         String AppendedOutcomeDescription = "";
         for(Outcome outcome : outcomes)
         {
-            AppendedOutcomeDescription+= "\t" + outcome.getDescription();
+            AppendedOutcomeDescription+= i++ +". " + outcome.getDescription()+"\n";
         }
         return AppendedOutcomeDescription;
     }

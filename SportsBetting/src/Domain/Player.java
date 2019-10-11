@@ -64,6 +64,6 @@ public class Player {
     @Override
     public String toString()
     {
-        return "Név: " + this.name + "\taccountnumber: " + this.account_number + "\tBalance: " + this.balance + "\tCurrency: " + this.currency + "\tDate of birth: " + dateofbirth;
+        return "Név: " + this.name + "\naccountnumber: " + this.account_number + "\nBalance: " + this.balance + "\nCurrency: " + this.currency + "\nDate of birth: " + dateofbirth;
     }
 }
