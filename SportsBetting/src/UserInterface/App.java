@@ -34,7 +34,7 @@ public class App {
         this.applogic = new AppLogic();
     }
     
-    public void play() throws IOException
+    public Player createPlayer()
     {
        Scanner input = new Scanner(System.in);
        System.out.println("What is your name?");
@@ -47,21 +47,26 @@ public class App {
        Currency playercurrency = applogic.StringToCurrency(currency);
        Player newplayer = new Player(name,new BigDecimal(accountnumber++),new BigDecimal(amountmoney),playercurrency,LocalDateTime.of(1997, Month.MARCH, 1, 1, 1));
        this.sportsbettingservicelogic.SavePlayer(newplayer);
-       
+       return newplayer;
+    }
+    
+    public ArrayList<Wager> doBetting(Player newplayer)
+    {
        String choosenletter = "";
        int choosennumber=-1;
        Wager wager;
+       ArrayList<Wager> wagers = new ArrayList<Wager>();
        while(!choosenletter.equals("q"))
        {
-            this.viewlogic.printWelcomeMessage(newplayer);      
+            this.viewlogic.printWelcomeMessage(newplayer); 
             this.viewlogic.printOutcomeOdds();
             Scanner choosennumberscanner = new Scanner(System.in);
             choosenletter = choosennumberscanner.nextLine();
-            if (choosenletter == "1") 
+            if (choosenletter.equals("1")) 
             {
                choosennumber = 1;
             }
-            else if(choosenletter == "2")
+            else if(choosenletter.equals("2"))
             {
                 choosennumber = 0;
             }
@@ -69,7 +74,7 @@ public class App {
             {
                 choosennumber = 2;
             }
-            if (choosennumber != -1) 
+            if (!choosenletter.equals( "q"))
             {
                 wager = new Wager(new BigDecimal("100"),LocalDateTime.now(),false,false,this.applogic.getOutcomeodds().get((choosennumber)),newplayer.getCurrency(),newplayer);
                 System.out.println(wager.toString());
@@ -82,21 +87,34 @@ public class App {
                 {
                     newplayer.setBalance();
                     this.sportsbettingservicelogic.saveWaget(wager);
+                    wagers.add(wager);
                     this.viewlogic.printWagerSaved(wager);
                 }
             }
        }
-       
+       return wagers;
+    }
+    
+    public void calculateResults()
+    {
        this.sportsbettingservicelogic.CalculateResults();
-       this.viewlogic.printResults(newplayer, this.applogic.getWagers());
        
-       System.out.println("Viszlát");
-       
-       
-       
-       
-       
-        
+    
+    }
+    
+    public void printResults(Player newplayer,ArrayList<Wager> wagers)
+    {
+        System.out.println("THE RESULTS:");
+        this.viewlogic.printResults(newplayer, wagers);
+        System.out.println("Viszlát");
+    }
+    
+    public void play() throws IOException
+    {
+       Player newplayer = this.createPlayer();
+       ArrayList<Wager> wagers = this.doBetting(newplayer);
+       this.calculateResults();
+       this.printResults(newplayer, wagers);
     }
     
     

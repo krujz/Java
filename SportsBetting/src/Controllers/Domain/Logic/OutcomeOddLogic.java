@@ -6,15 +6,15 @@ public class OutcomeOddLogic {
     
      public String CurrencyToString(Currency currency)
     {
-        if (currency == Currency.EUR) {
-            return "EUR";
+        if (currency == Currency.USD) {
+            return "USD";
         }
         else if (currency == Currency.HUF) {
             return "HUF";
         }
         else
         {
-            return "USD";
+            return "EUR";
         }
     }
     

@@ -27,9 +27,9 @@ public class View implements IView{
 
     @Override
     public void printWelcomeMessage(Player player) {
-        System.out.println("Welcome "+ player.getName());
+        System.out.println("\nWelcome "+ player.getName());
         System.out.println("Your balance is "+player.getBalance() +" "+ player.getCurrency());
-        System.out.println("What are you want to bet on? (choose a number or press q for quit)");
+        System.out.println("What are you want to bet on? (choose a number or press q for quit)\n");
     }
 
     @Override
@@ -83,9 +83,15 @@ public class View implements IView{
         
     }
 
-    @Override // Didn t have to set the connections between the sportevent class
+    @Override
     public void printResults(Player player, ArrayList<Wager> wagers) 
     {
-        this.datafactory.getFootballsportevent().getResults().ResultToString();
+        System.out.println(player.getName());
+        for(Wager wager : wagers)
+        {
+            System.out.println(wager.toString());
+        }
+        
+        
     }
 }

@@ -94,7 +94,7 @@ public class Wager {
     @Override
     public String toString()
     {
-        return "Amount: "+this.amount + "\ntimestampcreated: " + this.timestampCreated + "\nOutcomeodd: " + this.outcomeodd.getValue() + "\nCurrency: " + this.currency + "\nPlayer name:" + this.player.getName();
+        return "\nResult: " +this.win +"\nAmount: "+this.amount + "\ntimestampcreated: " + this.timestampCreated + "\nOutcomeodd: " + this.outcomeodd.getValue() + "\nCurrency: " + this.currency + "\nPlayer name:" + this.player.getName()+"\n";
     }
     
     

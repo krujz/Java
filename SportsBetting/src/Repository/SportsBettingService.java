@@ -56,6 +56,22 @@ public class SportsBettingService implements ISportsBettingService {
         results.add("gólok száma 2");
         
         this.datafactory.AddResult(new Result(results));
+        
+        for (int i = 0; i < this.datafactory.getWagers().size(); i++) 
+        {
+            if (this.datafactory.getWagers().get(i).getOutcomeodd().getValue() == new BigDecimal("1") ||
+                this.datafactory.getWagers().get(i).getOutcomeodd().getValue() == new BigDecimal("2")) 
+            {
+                 this.datafactory.getWagers().get(i).setWin(true);
+            }
+            else
+            {
+                this.datafactory.getWagers().get(i).setWin(false);
+            }
+           
+            
+        }
+        
     }
     
 }
