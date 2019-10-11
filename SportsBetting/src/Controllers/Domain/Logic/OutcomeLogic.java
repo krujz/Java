@@ -36,11 +36,10 @@ public class OutcomeLogic {
     public String AppendOutcomeOdds(ArrayList<OutcomeOdd> outcomeodds)
     {
         String AppendableOutcomeOdds = "";
-        int i = 0;
         
         for(OutcomeOdd outcomeodd : outcomeodds)
         {
-            AppendableOutcomeOdds += "\n" +i++ + ". "+outcomeodd ;
+            AppendableOutcomeOdds += outcomeodd +"\n";
         }
         return AppendableOutcomeOdds;
     }

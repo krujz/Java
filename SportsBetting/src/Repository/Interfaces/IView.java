@@ -23,7 +23,7 @@ public interface IView {
     
     void printBalance(Player player);
     
-    void printOutcomeOdds(ArrayList<SportEvent> sportevents);
+    void printOutcomeOdds();
     
     OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevents);
     
@@ -31,7 +31,7 @@ public interface IView {
     
     void printWagerSaved(Wager wager);
     
-    void printNotEnoughBalance(Player player);
+    boolean printNotEnoughBalance(Player player);
     
     void printResults(Player player, ArrayList<Wager> wagers);
 }

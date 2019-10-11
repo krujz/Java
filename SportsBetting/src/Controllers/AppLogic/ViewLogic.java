@@ -31,9 +31,9 @@ public class ViewLogic
         this.view.printBalance(player);
     }
     
-    public void printOutcomeOdds(ArrayList<SportEvent> sportevents)
+    public void printOutcomeOdds()
     {
-        this.view.printOutcomeOdds(sportevents);
+        this.view.printOutcomeOdds();
     }
     
     public OutcomeOdd selectOutcomeOdd(ArrayList<SportEvent> sportevents)
@@ -51,9 +51,9 @@ public class ViewLogic
         this.view.printWagerSaved(wager);
     }
     
-    public void printNotEnoughBalance(Player player)
+    public boolean printNotEnoughBalance(Player player)
     {
-        this.view.printNotEnoughBalance(player);
+        return this.view.printNotEnoughBalance(player);
     }
     
     public void printResults(Player player, ArrayList<Wager> wagers)

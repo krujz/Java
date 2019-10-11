@@ -5,6 +5,7 @@ import Domain.Outcome;
 import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.FootballSportEvent;
+import Domain.Wager;
 import Enums.Currency;
 import Exceptions.OutcomeOddTimeOverlapException;
 import Repository.DataSelectorFromDB;
@@ -39,6 +40,10 @@ public class AppLogic
 
     public FootballSportEvent getFootballsportevent() {
         return this.selectallfromdb.getFootballsportevent();
+    }
+    
+    public ArrayList<Wager> getWagers() {
+        return this.selectallfromdb.getWagers();
     }
     
      public Currency StringToCurrency(String strcurrency)

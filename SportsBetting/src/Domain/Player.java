@@ -29,8 +29,8 @@ public class Player {
         this.account_number = account_number;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public void setBalance() {
+        this.balance = this.balance.subtract(new BigDecimal("100"));
     }
 
     public void setCurrency(Currency currency) {

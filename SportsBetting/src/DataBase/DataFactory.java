@@ -55,7 +55,6 @@ public class DataFactory
         this.outcomes.get(0).AddOutcomeOdds(outcomeodds.get(0));
         this.outcomes.get(1).AddOutcomeOdds(outcomeodds.get(1));
         this.outcomes.get(2).AddOutcomeOdds(outcomeodds.get(2));
-        this.outcomes.get(2).AddOutcomeOdds(outcomeodds.get(3));
         
         this.bets.get(0).AddOutcome(this.outcomes.get(0));
         this.bets.get(1).AddOutcome(this.outcomes.get(1));
@@ -103,7 +102,7 @@ public class DataFactory
         this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("12"), LocalDateTime.of(2020, Month.MARCH, 1, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
         this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("2"), LocalDateTime.of(2020, Month.MARCH, 2, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
         this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("30"), LocalDateTime.of(2020, Month.MARCH, 3, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
-        this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("10"), LocalDateTime.of(2020, Month.MARCH, 4, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
+        //this.outcomeodds.add(this.datamanufacturerlogic.CreateOutcomeOdd(new BigDecimal("10"), LocalDateTime.of(2020, Month.MARCH, 4, 10, 10),LocalDateTime.of(2020, Month.MARCH, 11, 10, 10), Currency.EUR));
     }
 
     public ArrayList<String> getResults() {

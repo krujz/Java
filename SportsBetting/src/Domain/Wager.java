@@ -82,6 +82,20 @@ public class Wager {
     public void setPlayer(Player player) {
         this.player = player;
     }
+    /*
+    BigDecimal amount;
+    LocalDateTime timestampCreated;
+    boolean processed;
+    boolean win;
+    OutcomeOdd outcomeodd;
+    Currency currency;
+    Player player;
+    */
+    @Override
+    public String toString()
+    {
+        return "Amount: "+this.amount + "\ntimestampcreated: " + this.timestampCreated + "\nOutcomeodd: " + this.outcomeodd.getValue() + "\nCurrency: " + this.currency + "\nPlayer name:" + this.player.getName();
+    }
     
     
 }

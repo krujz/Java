@@ -3,9 +3,11 @@ package UserInterface;
 import Controllers.AppLogic.AppLogic;
 import Controllers.AppLogic.SportsBettingServiceLogic;
 import Controllers.AppLogic.ViewLogic;
+import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.FootballSportEvent;
 import Domain.SportEvents.SportEvent;
+import Domain.Wager;
 import Enums.Currency;
 import Exceptions.OutcomeOddTimeOverlapException;
 import Repository.Interfaces.ISportsBettingService;
@@ -46,18 +48,55 @@ public class App {
        Player newplayer = new Player(name,new BigDecimal(accountnumber++),new BigDecimal(amountmoney),playercurrency,LocalDateTime.of(1997, Month.MARCH, 1, 1, 1));
        this.sportsbettingservicelogic.SavePlayer(newplayer);
        
-       this.viewlogic.printWelcomeMessage(newplayer);
-       FootballSportEvent footballsportevent = this.applogic.getFootballsportevent();
-       ArrayList<SportEvent> sportevents = new ArrayList<SportEvent>();
-       sportevents.add(footballsportevent);
-       int counter = 0;
-       this.viewlogic.printOutcomeOdds(sportevents);
-       Scanner choosennumberscanner = new Scanner(System.in);
-       int choosennumber = choosennumberscanner.nextInt();
-       this.sportsbettingservicelogic.findAllSportEvents().get(choosennumber);
+       String choosenletter = "";
+       int choosennumber=-1;
+       Wager wager;
+       while(!choosenletter.equals("q"))
+       {
+            this.viewlogic.printWelcomeMessage(newplayer);      
+            this.viewlogic.printOutcomeOdds();
+            Scanner choosennumberscanner = new Scanner(System.in);
+            choosenletter = choosennumberscanner.nextLine();
+            if (choosenletter == "1") 
+            {
+               choosennumber = 1;
+            }
+            else if(choosenletter == "2")
+            {
+                choosennumber = 0;
+            }
+            else
+            {
+                choosennumber = 2;
+            }
+            if (choosennumber != -1) 
+            {
+                wager = new Wager(new BigDecimal("100"),LocalDateTime.now(),false,false,this.applogic.getOutcomeodds().get((choosennumber)),newplayer.getCurrency(),newplayer);
+                System.out.println(wager.toString());
+
+                if (this.viewlogic.printNotEnoughBalance(newplayer)) 
+                {
+                   System.out.println("Not Enough balance ! ");
+                }
+                else
+                {
+                    newplayer.setBalance();
+                    this.sportsbettingservicelogic.saveWaget(wager);
+                    this.viewlogic.printWagerSaved(wager);
+                }
+            }
+       }
+       
+       this.sportsbettingservicelogic.CalculateResults();
+       this.viewlogic.printResults(newplayer, this.applogic.getWagers());
+       
+       System.out.println("Viszlát");
        
        
        
+       
+       
+        
     }
     
     

@@ -11,6 +11,7 @@ import Domain.Outcome;
 import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.FootballSportEvent;
+import Domain.Wager;
 import Exceptions.OutcomeOddTimeOverlapException;
 import java.util.ArrayList;
 
@@ -47,5 +48,9 @@ public class DataSelectorFromDB {
 
     public FootballSportEvent getFootballsportevent() {
         return this.datafactory.getFootballsportevent();
+    }
+    
+    public ArrayList<Wager> getWagers() {
+        return this.datafactory.getWagers();
     }
 }

@@ -39,15 +39,10 @@ public class View implements IView{
     }
 
     @Override
-    public void printOutcomeOdds(ArrayList<SportEvent> sportevents) {
-        int i = 0;
-        for(SportEvent sportevent : sportevents)
-        {
-            ArrayList<Bet> bets = sportevent.getBets();
-            System.out.println(i);
-            System.out.println(sportevent.getBets().toString());
-            sportevent.getBets().forEach(x->x.getOutcomes().forEach(y-> System.out.println(y.AppendOutcomeOdds())));
-        }
+    public void printOutcomeOdds() {
+        
+        System.out.println(this.datafactory.getBets());
+        this.datafactory.getOutcomes().forEach(x->System.out.println(x.AppendOutcomeOdds()));
     }
 
     @Override
@@ -73,24 +68,24 @@ public class View implements IView{
     @Override
     public void printWagerSaved(Wager wager) 
     {
-        this.datafactory.AddWager(wager);
         System.out.println("Wager saved ! ");
     }
 
     @Override // no param for the amount money he/she wanted to play with , default amount is 100
-    public void printNotEnoughBalance(Player player) {
+    public boolean printNotEnoughBalance(Player player) {
         
         BigDecimal defaultamount = new BigDecimal("100");
         if (defaultamount.compareTo(player.getBalance()) == 1 ) 
         {
-            System.out.println("Not Enough balance ! ");
+            return true;
         }
+        return false;
+        
     }
 
     @Override // Didn t have to set the connections between the sportevent class
     public void printResults(Player player, ArrayList<Wager> wagers) 
     {
-        this.datafactory.getFootballsportevent().getResults();
+        this.datafactory.getFootballsportevent().getResults().ResultToString();
     }
-    
 }
