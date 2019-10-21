@@ -6,7 +6,7 @@ import Domain.Result;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
 import Exceptions.OutcomeOddTimeOverlapException;
-import Repository.Interfaces.ISportsBettingService;
+import Interfaces.ISportsBettingService;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 

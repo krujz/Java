@@ -1,4 +1,4 @@
-package Repository;
+package UserInterface;
 
 import DataBase.DataFactory;
 import Domain.Bet;
@@ -8,7 +8,7 @@ import Domain.Player;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
 import Exceptions.OutcomeOddTimeOverlapException;
-import Repository.Interfaces.IView;
+import Interfaces.IView;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
