@@ -7,7 +7,6 @@ import Domain.Result;
 import Domain.Result;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import javafx.concurrent.Task;
 
 public abstract class SportEvent {
     String title;
