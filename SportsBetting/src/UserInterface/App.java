@@ -1,27 +1,12 @@
 package UserInterface;
 
 import Controllers.AppLogic.AppLogic;
-import Controllers.AppLogic.SportsBettingServiceLogic;
-import Controllers.AppLogic.ViewLogic;
-import Domain.OutcomeOdd;
-import Domain.Player;
-import Domain.SportEvents.FootballSportEvent;
-import Domain.SportEvents.SportEvent;
-import Domain.Wager;
-import Enums.Currency;
 import Exceptions.OutcomeOddTimeOverlapException;
-import Interfaces.ISportsBettingService;
-import Repository.SportsBettingService;
+
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
 
-    
     AppLogic applogic;
     public App() throws OutcomeOddTimeOverlapException
     {
@@ -47,7 +32,5 @@ public class App {
         {
             System.out.println(e.getMessage());
         }
-       
-        
     }
 }
