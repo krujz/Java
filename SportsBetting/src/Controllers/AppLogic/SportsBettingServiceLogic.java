@@ -1,12 +1,9 @@
 package Controllers.AppLogic;
 
-import DataBase.DataFactory;
 import Domain.Player;
-import Domain.Result;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
-import Exceptions.OutcomeOddTimeOverlapException;
-import Interfaces.ISportsBettingService;
+import Repository.Interfaces.ISportsBettingService;
 import java.util.ArrayList;
 
 public class SportsBettingServiceLogic 

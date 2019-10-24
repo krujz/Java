@@ -1,7 +1,7 @@
 package UserInterface;
 
 import Controllers.AppLogic.AppLogic;
-import Exceptions.OutcomeOddTimeOverlapException;
+import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class App {
 
     public void play() throws IOException
     {
-       applogic.play();
+       this.applogic.play();
     }
     public static void main(String[] args)
     {

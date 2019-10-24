@@ -1,4 +1,4 @@
-package Exceptions;
+package Global_packeges.Exceptions;
 
 public class OutcomeOddTimeOverlapException extends Exception {
     

@@ -1,18 +1,17 @@
 package UserInterface;
 
 import DataBase.DataFactory;
-import Domain.Bet;
-import Domain.Outcome;
 import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
-import Exceptions.OutcomeOddTimeOverlapException;
-import Interfaces.IView;
+import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
+import UserInterface.Interfaces.IView;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class View implements IView{
+public class View implements IView {
 
     DataFactory datafactory;
     public View() throws OutcomeOddTimeOverlapException

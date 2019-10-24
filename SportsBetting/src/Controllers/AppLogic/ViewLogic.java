@@ -4,7 +4,7 @@ import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
-import Interfaces.IView;
+import UserInterface.Interfaces.IView;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 

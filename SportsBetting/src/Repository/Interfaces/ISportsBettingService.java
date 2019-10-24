@@ -1,4 +1,4 @@
-package Interfaces;
+package Repository.Interfaces;
 
 import Domain.Player;
 import Domain.SportEvents.SportEvent;

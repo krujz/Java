@@ -1,7 +1,7 @@
 package Domain;
 
 import Domain.SportEvents.SportEvent;
-import Enums.BetTypes;
+import Global_packeges.Enums.BetTypes;
 import java.util.ArrayList;
 import Controllers.Domain.Logic.BetLogic;
 

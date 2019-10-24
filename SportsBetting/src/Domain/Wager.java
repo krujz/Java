@@ -1,6 +1,6 @@
 package Domain;
 
-import Enums.Currency;
+import Global_packeges.Enums.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

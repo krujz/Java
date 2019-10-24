@@ -12,7 +12,7 @@ import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.FootballSportEvent;
 import Domain.Wager;
-import Exceptions.OutcomeOddTimeOverlapException;
+import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
 import java.util.ArrayList;
 
 /**

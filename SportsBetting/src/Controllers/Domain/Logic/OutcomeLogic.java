@@ -1,7 +1,7 @@
 package Controllers.Domain.Logic;
 
 import Domain.OutcomeOdd;
-import Exceptions.OutcomeOddTimeOverlapException;
+import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
 import java.util.ArrayList;
 
 public class OutcomeLogic {
