@@ -13,8 +13,8 @@ import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.Result;
 import Domain.SportEvents.FootballSportEvent;
-import Global_packeges.Enums.BetTypes;
-import Global_packeges.Enums.Currency;
+import Global_packages.Enums.BetTypes;
+import Global_packages.Enums.Currency;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package Controllers.Domain.Logic;
 
 import Domain.Outcome;
-import Global_packeges.Enums.BetTypes;
+import Global_packages.Enums.BetTypes;
 import java.util.ArrayList;
 
 public class BetLogic {

@@ -1,6 +1,6 @@
 package Controllers.Builders;
 
-import Global_packeges.Enums.Currency;
+import Global_packages.Enums.Currency;
 import java.math.BigDecimal;
 
 import Domain.Player;

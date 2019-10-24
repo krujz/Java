@@ -3,7 +3,7 @@ package Controllers.Builders;
 import Domain.Bet;
 import Domain.Outcome;
 import Domain.SportEvents.SportEvent;
-import Global_packeges.Enums.BetTypes;
+import Global_packages.Enums.BetTypes;
 import java.util.ArrayList;
 
 public class BetBuilder {

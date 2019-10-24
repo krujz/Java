@@ -1,7 +1,7 @@
 package UserInterface;
 
 import Controllers.AppLogic.AppLogic;
-import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
+import Global_packages.Exceptions.OutcomeOddTimeOverlapException;
 
 import java.io.IOException;
 

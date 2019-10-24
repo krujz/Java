@@ -1,6 +1,6 @@
 package Controllers.Domain.Logic;
 
-import Global_packeges.Enums.Currency;
+import Global_packages.Enums.Currency;
 
 public class OutcomeOddLogic {
     

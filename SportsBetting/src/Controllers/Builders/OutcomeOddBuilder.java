@@ -1,7 +1,7 @@
 package Controllers.Builders;
 
 import Domain.OutcomeOdd;
-import Global_packeges.Enums.Currency;
+import Global_packages.Enums.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

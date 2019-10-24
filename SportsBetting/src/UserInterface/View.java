@@ -5,7 +5,7 @@ import Domain.OutcomeOdd;
 import Domain.Player;
 import Domain.SportEvents.SportEvent;
 import Domain.Wager;
-import Global_packeges.Exceptions.OutcomeOddTimeOverlapException;
+import Global_packages.Exceptions.OutcomeOddTimeOverlapException;
 import UserInterface.Interfaces.IView;
 
 import java.math.BigDecimal;
