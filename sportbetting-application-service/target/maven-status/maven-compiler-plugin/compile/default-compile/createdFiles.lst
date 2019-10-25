@@ -1,0 +1,8 @@
+Repository\DataSelectorFromDB.class
+Repository\Interfaces\ISportsBettingService.class
+Repository\SportsBettingService.class
+Controllers\SportsBettingServiceLogic.class
+Controllers\AppLogic\AppLogic.class
+Controllers\AppLogic\Interfaces\IView.class
+Controllers\AppLogic\ViewLogic.class
+Controllers\AppLogic\View.class

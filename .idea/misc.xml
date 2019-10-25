@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/sportsbetting-application-app/pom.xml" />
+        <option value="$PROJECT_DIR$/sportbetting-application-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sportbetting-application-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/sportsbetting-application-domain/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
