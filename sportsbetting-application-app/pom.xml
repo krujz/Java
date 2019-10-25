@@ -22,7 +22,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.sportsbetting.App</mainClass>
+                            <mainClass>UserInterface.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
